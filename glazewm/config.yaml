@@ -1,8 +1,8 @@
 general:
   # Commands to run when the WM has started (e.g. to run a script or launch
   # another application). Here we are running a batch script to start Zebar.
-  startup_commands: ['shell-exec %userprofile%/.glzr/zebar/start.bat']
-
+  # startup_commands: ['shell-exec zebar', 'shell-exec python %userprofile%/.glzr/zebar/scripts/py_glaze_s.py']
+  startup_commands: ['shell-exec zebar']
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
 
@@ -71,30 +71,30 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    display_name: '<b class="nf nf-oct-terminal"></b>'
+    display_name: ''
     bind_to_monitor: 0
   - name: "2"
-    display_name: '<b class="nf nf-fa-firefox"></b>'
+    display_name: ''
     bind_to_monitor: 1
   - name: "3"
-    display_name: '<b class="nf nf-fa-twitch"></b>'
+    display_name: ''
     bind_to_monitor: 1
   - name: "4"
-    display_name: '<b class="nf nf-md-mail"></b>'
+    display_name: '󰺻'
     bind_to_monitor: 1
   - name: "5"
-    display_name: '<b class="nf nf-fa-square_steam"></b>'
+    display_name: ''
     bind_to_monitor: 0
   - name: "6"
-    display_name: '<b class="nf nf-md-discord"></b>'
+    display_name: '󰙯'
     bind_to_monitor: 1
   - name: "7"
-    display_name: '<b class="nf nf-oct-mail"></b>'
+    display_name: ''
     bind_to_monitor: 1
   - name: "8"
-    display_name: '<b class="nf nf-fa-space_shuttle"></b>'
+    display_name: ''
   - name: "9"
-    display_name: '<b class="nf nf-fae-planet"></b>'
+    display_name: ''
 
 window_rules:
   - commands: ['ignore']
@@ -145,6 +145,7 @@ window_rules:
   - commands: ['toggle-fullscreen']
     match:
       - window_process: { equals: 'mpv' }
+      - window_process: { equals: 'kodi' }
 
   - commands: ['move --workspace 4', 'focus --workspace 4']
     match:

@@ -1,0 +1,314 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+i {
+  color: #a29aaf;
+  margin-right: 7px;
+}
+
+body {
+  color: #d3b9b9;
+  font-family: RobotoMono Nerd Font, Roboto, ui-monospace, monospace;
+  font-size: 12px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  font-family: RobotoMono Nerd Font, Roboto, ui-monospace, monospace;
+  background: linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 0 / 0%) );;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 1.5vw;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.shortcuts {
+  padding: 0px 6vw;
+  display: flex;
+  align-items: center;
+}
+
+.lock {
+  background: #23213600;
+  margin-right: 4px;
+  color: #ce7e6a50;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #ce7e6a;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &.active,
+  &:hover {
+    background: #0a1d2400;
+    color: #ce7e6a;
+  }
+}
+
+.center {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.memory,
+.cpu,
+.battery {
+  margin-right: 15px;
+  font-size: 10px;
+}
+
+.date {
+  font-size: 11px;
+}
+
+.network {
+  font-size: 8px;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+.workspace1 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #9ece6a50;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #9ece6a;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #9ece6a;
+  }
+}
+
+.workspace2 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #fe903f50;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #fe903f;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #fe903f;
+  }
+}
+
+.workspace3 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #62439950;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #996ee4;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #996ee4;
+  }
+}
+
+.workspace4 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #8fccf050;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #8fccf0;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #8fccf0;
+  }
+}
+
+.workspace5 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #66c0f450;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #66c0f4;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #66c0f4;
+  }
+}
+
+.workspace6 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #5865f250;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #8790f1;
+    background: #0a1d2450;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #8790f1;
+  }
+}
+
+.workspace7 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #cec4c450;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #8fccf0;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #8fccf0;
+  }
+}
+
+.workspace8 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #cec4c450;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #8fccf0;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #8fccf0;
+  }
+}
+
+.workspace9 {
+  background: #23213600;
+  margin-right: 4px;
+  color: #cec4c450;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &.displayed {
+    color: #8fccf0;
+    background: #0a1d2400;
+  }
+
+  &.focused,
+  &:hover {
+    background: #0a1d2400;
+    color: #8fccf0;
+    
+  }
+}
+
+.title_btn {
+  background: #23213600;
+  color: #d3b9b9;
+  border: none;
+  cursor: pointer;
+}
+
+.tiling-direction {
+  background: rgb(255 255 255 / 15%);
+  color: rgb(255 255 255 / 90%);
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.binding-mode {
+  background: rgba(236, 108, 108, 0.15);
+  color: rgb(255 255 255 / 90%);
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+
+.cpu .high-usage {
+  color: #900029;
+}
+
+.battery {
+  position: relative;
+}
+
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}
