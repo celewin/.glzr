@@ -1,0 +1,256 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+body {
+  font-family: RobotoMono Nerd Font, Roboto, ui-monospace, monospace;
+  font-size: 14px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  font-family: RobotoMono Nerd Font, Roboto, ui-monospace, monospace;
+  background: linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 0 / 0%) );
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  height: 100%;
+  border-radius: 0px;
+  border: 10px;
+  border-color: #000000;
+  padding-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: linear-gradient(rgb(46 41 65 / 0%) , rgb(15 20 26 / 0%));
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  background: #ffb7a200;
+  border: none;
+  border-radius: 10px;
+}
+
+.center {
+  display: flex;
+  align-items: normal;
+  color: #ebcece;
+  border: none;
+  border-radius: 5px;
+  background: #80e7b700;
+  justify-content: left;
+}
+.right {
+  display: flex;
+  align-items: center;
+  color: #ebcece;
+  border: none;
+  border-radius: 10px;
+  background: #80e7b700;
+}
+
+.title_btn {
+  margin-left: 10px;
+  background: #23213600;
+  color: #1d1414;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 3px;
+  background: #f7b1b1;
+  &:hover{
+    background: #633b3b;
+    color: #f8cfcf;
+  }
+}
+
+.shortcuts {
+  padding: 0px 6vw;
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  justify-self: left;
+}
+
+.right {
+  justify-self: end;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+.workspace1,
+.workspace2,
+.workspace3,
+.workspace4,
+.workspace5,
+.workspace6,
+.workspace7,
+.workspace8,
+.workspace9 {
+  inline-size: 26px;
+  padding: 3px;
+  color: #000000;
+  margin-right: 6px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.4s;
+  &.displayed {
+    opacity: 0.5;
+  }
+
+  &.focused,
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.workspace1 {
+  background-color: #9ece6a;
+  padding-right: 9px;
+}
+
+.workspace2 {
+  background-color: #fe903f;
+  padding-right: 8px;
+}
+
+.workspace3 {
+  background-color: #af80ff;
+  padding-right: 6.5px;
+  padding-top: 4px;
+}
+
+.workspace4 {
+  background-color: #8fccf0;
+  padding-right: 6.5px;
+  padding-top: 4px;
+}
+
+.workspace5 {
+  background-color: #66c0f4;
+  padding-right: 8px;
+}
+
+.workspace6 {
+  background-color: #5865f2;
+  padding-right: 6.5px;
+  padding-top: 4px;
+}
+
+.workspace7 {
+  background-color: #1ED760;
+  padding-right: 8px;
+}
+
+.workspace8 {
+  background-color: #cec4c4;
+  padding-right: 6px;
+}
+
+.workspace9 {
+  background-color: #cec4c4;
+  padding-right: 7px;
+}
+
+.lock,
+.tiling-direction {
+  background: #2c3464;
+  color: #D6F6F8;
+  border-radius: 4px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+  margin-right: 20px;
+  font-size: 12px;
+}
+
+.binding-mode {
+  background: #2c3464;
+  color: #D6F6F8;
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+  margin-right: 20px;
+  font-size: 12px;
+}
+
+.memory,
+.cpu,
+.date,
+.time,
+.battery,
+.network {
+  margin-right: 10px;
+  font-size: 12px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  background: #2c3464;
+}
+
+.time {
+  margin-right: 0px;
+}
+
+
+i {
+  margin-right: 7px;
+}
+
+.memory {
+  color: #c5ada1;
+}
+.cpu {
+  color: #b6765f;
+}
+.date {
+  color: #62a9bd;
+}
+.time {
+  color: #B0CFD1;
+}
+.battery {
+  color: #5865f2;
+}
+.network {
+  color: #5865f2;
+}
+
+
+.cpu .high-usage {
+  color: #900029;
+}
+
+.battery {
+  position: relative;
+}
+
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}

@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../normalize.css" />
 
     <!-- Custom styles. -->
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" type="text/css" href="./cubes.css" />
 
     <!-- Add empty favicon to suppress not found errors. -->
     <link rel="icon" href="data:;" />
@@ -36,7 +36,8 @@
         network: { type: 'network' },
         glazewm: { type: 'glazewm' },
         cpu: { type: 'cpu' },
-        date: { type: 'date', formatting: 'yyyy-MM-dd ● t' },
+        date: { type: 'date', formatting: 'yyyy-MM-dd' },
+        time: { type: 'date', formatting: 't' },
         battery: { type: 'battery' },
         memory: { type: 'memory' },
         weather: { type: 'weather' },
@@ -47,21 +48,6 @@
       function App() {
 
         const [isActive, setIsActive] = useState(false);
-
-        const handleLock = () => {
-          const button = document.getElementById('lock_btn');
-          const isActive = button.classList.contains('active'); // Prüfe ob die Klasse 'active' vorhanden ist
-
-          if (isActive) {
-            button.classList.remove('active');
-          } else {
-            button.classList.add('active');
-          }
-
-          // Führe den Shell-Befehl aus
-          output.glazewm.runCommand("shell-exec python C:/users/clewi/.glzr/zebar/scripts/toggleTB.py");
-        };
-
         const [isProcessName, setIsProcessName] = useState(true);
         const titleClick = () => {
           setIsProcessName(!isProcessName);
@@ -164,46 +150,33 @@
                       {workspace.displayName ?? workspace.name}
                     </button>
                   ))}
-                  {output.glazewm.bindingModes.map(bindingMode => (
-                    <button
-                      className="binding-mode"
-                      key={bindingMode.name}
-                    >
-                      {bindingMode.displayName ?? bindingMode.name}
-                    </button>
-                  ))}
-                  <div className="shortcuts">
-                  </div>
                 </div>
               )}
-            </div>
-
-            <div className="center">
               <button className="title_btn" onClick={titleClick}>
                 {isProcessName
-                ? output.glazewm && output.glazewm.focusedContainer.processName
-                : output.glazewm && output.glazewm.focusedContainer.title}
+                ? output.glazewm && output.glazewm.focusedContainer.title
+                : output.glazewm && output.glazewm.focusedContainer.processName}
               </button>
             </div>
 
             <div className="right">
               {output.glazewm && (
                 <>
-                  <button
-                    id="lock_btn"
-                    className={`lock ${isActive ? 'active' : ''}`} 
-                    onClick={() => handleLock()}
-                    >
-                    
-                  </button>
-
+                  {output.glazewm.bindingModes.map(bindingMode => (
+                      <button
+                        className="binding-mode"
+                        key={bindingMode.name}
+                      >
+                        {bindingMode.displayName ?? bindingMode.name}
+                      </button>
+                    ))}
                   <button
                     className={`tiling-direction nf ${output.glazewm.tilingDirection === 'horizontal' ? 'nf-md-swap_horizontal' : 'nf-md-swap_vertical'}`}
                     onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
                   ></button>
                 </>
               )}
-              
+              {/*
               <div className="network">
                 {output.network && (
                   <div className="memory">
@@ -218,7 +191,7 @@
                   </div>
                 )}
               </div>
-
+              */}
               {output.memory && (
                 <div className="memory">
                   <i className="nf nf-fae-chip"></i>
@@ -250,7 +223,14 @@
                 </div>
               )}
 
-              <div className="date">{output.date?.formatted}</div>
+              <div className="date">
+                <i className="nf nf-fa-calendar"></i>
+                {output.date?.formatted}
+              </div>
+              <div className="time">
+                <i className="nf nf-oct-clock"></i>
+                {output.time?.formatted}
+              </div>
             </div>
           </div>
         );

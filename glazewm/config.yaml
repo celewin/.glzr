@@ -2,9 +2,9 @@ general:
   # Commands to run when the WM has started (e.g. to run a script or launch
   # another application). Here we are running a batch script to start Zebar.
   # startup_commands: ['shell-exec zebar', 'shell-exec python %userprofile%/.glzr/zebar/scripts/py_glaze_s.py']
-  startup_commands: ['shell-exec zebar']
+  startup_commands: ['shell-exec zebar', 'shell-exec yasb']
   # Whether to automatically focus windows underneath the cursor.
-  focus_follows_cursor: false
+  focus_follows_cursor: true
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
@@ -25,25 +25,31 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '40px'
-    right: '10px'
-    bottom: '10px'
-    left: '10px'
+    top: '35px'
+    right: '8 px'
+    bottom: '25px'
+    left: '8 px'
 
-window_effects:
+window_effects:     
   # Visual effects to apply to the focused window.
   focused_window:
     # Highlight the window with a colored border.
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: "#c56632"
+      color: "#F6B0B0"
+    # transparency:
+    #   enabled: true
+    #   opacity: "80%"
 
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: true
+      enabled: false
       color: '#a1a1a1'
+    # transparency:
+    #   enabled: true
+    #   opacity: "90%"
 
 window_behavior:
   # New windows are created in this state whenever possible.
@@ -59,7 +65,7 @@ window_behavior:
       centered: true
 
       # Whether to show floating windows as always on top.
-      shown_on_top: false
+      shown_on_top: true
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -71,37 +77,37 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    display_name: ''
+    display_name: ' '
     bind_to_monitor: 0
   - name: "2"
-    display_name: ''
+    display_name: ' '
     bind_to_monitor: 1
   - name: "3"
-    display_name: ''
+    display_name: ' '
     bind_to_monitor: 1
   - name: "4"
-    display_name: '󰺻'
+    display_name: '󰺻 '
     bind_to_monitor: 1
   - name: "5"
-    display_name: ''
+    display_name: ' '
     bind_to_monitor: 0
   - name: "6"
-    display_name: '󰙯'
+    display_name: '󰙯 '
     bind_to_monitor: 1
   - name: "7"
-    display_name: ''
+    display_name: ' '
     bind_to_monitor: 1
   - name: "8"
-    display_name: ''
+    display_name: '󰭹 '
+    bind_to_monitor: 1
   - name: "9"
-    display_name: ''
+    display_name: ' '
 
 window_rules:
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
-
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
         window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
@@ -110,11 +116,21 @@ window_rules:
       - window_process: { equals: 'PowerToys.PowerAccent' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper*' }
+      
   - commands: ['toggle-floating']
     match:
       - window_process: { equals: 'explorer' }
       - window_process: { equals: 'Aki.Launcher' }
-  
+      - window_process: { regex: 'Godot*' }
+      - window_process: { equals: 'Taskmgr' }
+      - window_process: { equals: 'Colorpicker' }
+  - commands: ['set-transparency --opacity 0.95']
+    match:
+    - window_process: { equals: 'Code' }
+    #- window_process: { equals: 'chrome' }
+    - window_process: { equals: 'explorer' }
+    - window_process: { equals: 'steamwebhelper' }
+    - window_process: { equals: 'Taskmgr' }
   # - command: "set floating"
   #   match_process_name: "Aki.Launcher"
   # # Zebar
@@ -161,6 +177,15 @@ window_rules:
   
   - commands: ['move --workspace 7']
     match:
+      - window_process: { equals: 'Spotify' }
+      - window_process: { equals: 'olk' }
+
+  - commands: ['move --workspace 8', 'focus --workspace 5']
+    match:
+      - window_process: { equals: 'Signal' }
+
+  - commands: ['move --workspace 9']
+    match:
       - window_process: { equals: 'olk' }
   
 
@@ -186,6 +211,7 @@ binding_modes:
     keybindings:
       - commands: ['wm-disable-binding-mode --name pause']
         bindings: ['alt+shift+p']
+
 
 keybindings:
   # Shift focus in a given direction.
@@ -228,6 +254,9 @@ keybindings:
   - commands: ['wm-enable-binding-mode --name pause']
     bindings: ['alt+shift+p']
 
+  - commands: ['shell-exec --hide-window python C:/users/clewi/.glzr/zebar/scripts/toggleTB.py']
+    bindings: ['alt+shift+#']
+
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
   - commands: ['toggle-tiling-direction']
@@ -235,15 +264,15 @@ keybindings:
 
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ['wm-cycle-focus']
-    bindings: ['alt+space']
+    bindings: ['alt+shift+space']
 
   # Change the focused window to be floating.
   - commands: ['toggle-floating --centered']
-    bindings: ['alt+shift+space']
+    bindings: ['alt+space']
 
   # Change the focused window to be tiling.
-  - commands: ['toggle-tiling']
-    bindings: ['alt+t']
+  # - commands: ['toggle-tiling']
+  #   bindings: ['alt+t']                   
 
   # Change the focused window to be fullscreen.
   - commands: ['toggle-fullscreen']
@@ -251,16 +280,16 @@ keybindings:
 
   # Minimize focused window.
   - commands: ['toggle-minimized']
-    bindings: ['alt+m']
+    bindings: ['alt+w']
 
   # Close focused window.
   - commands: ['close']
     bindings: ['alt+q']
 
   # Kill GlazeWM process safely.
-  - commands: ['shell-exec taskkill /T /F /IM zebar.exe', 'wm-exit']
+  - commands: ['shell-exec taskkill /T /F /IM zebar.exe', 'shell-exec taskkill /T /F /IM yasb.exe', 'wm-exit']
     bindings: ['alt+shift+e']
-
+ 
   # Re-evaluate configuration file.
   - commands: ['wm-reload-config']
     bindings: ['alt+shift+r'] 
@@ -272,7 +301,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec wt']
+  - commands: ['shell-exec C:\Users\clewi\AppData\Local\Microsoft\WindowsApps\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\wt.exe']
     bindings: ['alt+t']
   - commands: ['shell-exec firefox']
     bindings: ['alt+b']
@@ -284,10 +313,12 @@ keybindings:
     bindings: ['alt+x']
   - commands: ['shell-exec chrome https://youtube.com']
     bindings: ['alt+y']
-  - commands: ['shell-exec chrome https://chatgpt.com/']
-    bindings: ['alt+k']
+  # - commands: ['shell-exec chrome https://chatgpt.com/']
+  #   bindings: ['alt+k']
+  - commands: ['shell-exec C:\Users\clewi\AppData\Local\Microsoft\WindowsApps\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\wt.exe yazi']
+    bindings: ['alt+o']
   - commands: ['shell-exec shutdown /s /f /t 0']
-    bindings: ['alt+shift+k']
+    bindings: ['alt+shift+f12']
   # Focus the next/previous workspace defined in `workspaces` config.
   - commands: ['focus --next-workspace']
     bindings: ['alt+s']
