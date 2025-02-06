@@ -183,6 +183,7 @@ window_rules:
   - commands: ['move --workspace 8', 'focus --workspace 5']
     match:
       - window_process: { equals: 'Signal' }
+      - window_process: { equals: 'Telegram' }
 
   - commands: ['move --workspace 9']
     match:
@@ -254,8 +255,8 @@ keybindings:
   - commands: ['wm-enable-binding-mode --name pause']
     bindings: ['alt+shift+p']
 
-  - commands: ['shell-exec --hide-window python C:/users/clewi/.glzr/zebar/scripts/toggleTB.py']
-    bindings: ['alt+shift+#']
+  # - commands: ['shell-exec --hide-window python C:/users/clewi/.glzr/zebar/scripts/toggleTB.py']
+  #   bindings: ['alt+shift+#']
 
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
