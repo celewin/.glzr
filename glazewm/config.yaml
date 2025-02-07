@@ -4,7 +4,7 @@ general:
   # startup_commands: ['shell-exec zebar', 'shell-exec python %userprofile%/.glzr/zebar/scripts/py_glaze_s.py']
   startup_commands: ['shell-exec zebar', 'shell-exec yasb']
   # Whether to automatically focus windows underneath the cursor.
-  focus_follows_cursor: true
+  focus_follows_cursor: false
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
